@@ -1,0 +1,46 @@
+@startuml
+
+title Message Bus
+
+Interface IPublishMessage {
+    +void publish(Message)
+    
+}
+
+Interface ISubscribeMessage {
+    +void subscribe(MessageType)
+    +void unsubscribe(MessageType)
+    +bool getNextMessage(out Message)
+}
+
+class Publisher implements IPublishMessage {
+    -string m_name
+    -BusPtr m_bus_ptr
+}
+
+class Bus {
+    +PublisherPtr createPublisher(name)
+    +SubscriberPtr createSubscriber(name)
+    ~void publishMessage(msg, publisher)
+    -map<MessageType, ListenerPtr> m_message_sub
+    -list<Publisher> m_publishers
+}
+
+class Subscriber implements ISubscribeMessage {
+    ~void deliverMessage(Message)
+    -string m_name
+    -BusPtr m_bus_ptr
+    -queue<Message> m_message_queue
+}
+
+abstract Message {
+    -string m_publisher_name
+    -
+    
+}
+
+Publisher -> Bus
+Bus -> Subscriber
+Subscriber - Message
+
+@enduml

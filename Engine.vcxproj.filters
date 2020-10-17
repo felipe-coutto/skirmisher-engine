@@ -13,5 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\MessageBus">
+      <UniqueIdentifier>{fb174b87-64e4-4af7-b723-c1bfb5f3e2ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MessageBus\Test">
+      <UniqueIdentifier>{3d9a1aa7-d51b-4c59-a0ca-358f7c3b2476}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MessageBus\Include\Bus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageBus\Include\ISubscribeMessage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageBus\Include\Message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageBus\Include\Subscriber.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageBus\Include\IDeliverMessage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MessageBus\Include\Bus.cpp">
+      <Filter>Source Files\MessageBus</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageBus\Include\Subscriber.cpp">
+      <Filter>Source Files\MessageBus</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>Source Files\MessageBus\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageBus\Include\Message.cpp">
+      <Filter>Source Files\MessageBus</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
