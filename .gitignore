@@ -32,3 +32,6 @@
 *.app
 /.vs
 /x64/Debug
+/src/MessageBus/Debug
+/src/MessageBus/x64
+/Test/x64

@@ -3,22 +3,22 @@
 using namespace MessageBus;
 using namespace std;
 
-void Bus::publish_message(Message msg)
+void Bus::publish_message(shared_ptr<Message> msg_ptr)
 {
     // Find subscribers to the message type
-    auto it = m_subscription_map.find(msg.get_type());
+    auto it = m_subscription_map.find(msg_ptr->get_type());
     if (it != m_subscription_map.end())
     {
-        deliver_to_subscribers(msg, it->second);
+        deliver_to_subscribers(msg_ptr, it->second);
     }
 }
 
-void Bus::deliver_to_subscribers(Message msg, SubscriberList subscribers)
+void Bus::deliver_to_subscribers(shared_ptr<Message> msg_ptr, SubscriberList subscribers)
 {
     //Publish message to list of subscribers
     for (auto it = subscribers.begin(); it != subscribers.end(); ++it)
     {
-        (*it)->deliver_message(msg);
+        (*it)->deliver_message(msg_ptr);
     }
 }
 

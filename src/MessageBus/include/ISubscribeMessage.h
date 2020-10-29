@@ -4,10 +4,11 @@
 
 namespace MessageBus
 {
+
 	class ISubscribeMessage
 	{
 	public:
 		virtual ~ISubscribeMessage() {};
-		virtual bool get_next_message(Message&) = 0;
+		virtual shared_ptr<Message> get_next_message() = 0;
 	};
 }

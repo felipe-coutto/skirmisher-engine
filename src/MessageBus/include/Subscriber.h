@@ -12,24 +12,28 @@ using namespace std;
 
 namespace MessageBus
 {
+	
+
 	class Bus;
 
 	class Subscriber : public ISubscribeMessage, public IDeliverMessage
 
 	{
+		typedef shared_ptr<Message> MessagePtr;
+
 	public:
 		Subscriber(string name);
 
-		virtual bool get_next_message(Message& msg);
+		virtual shared_ptr<Message> get_next_message();
 
-		virtual void deliver_message(Message msg);
+		virtual void deliver_message(MessagePtr msg);
 
 		string get_name();
 
 	private:
 		string m_name;
 		shared_ptr<Bus> m_bus_ptr;
-		queue<Message> m_msg_queue;
+		queue<MessagePtr> m_msg_queue;
 
 	};
 }

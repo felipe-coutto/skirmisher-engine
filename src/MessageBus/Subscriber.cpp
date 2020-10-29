@@ -7,22 +7,22 @@ MessageBus::Subscriber::Subscriber(string name):
 {
 }
 
-bool MessageBus::Subscriber::get_next_message(Message& msg)
+shared_ptr<Message> MessageBus::Subscriber::get_next_message()
 {
 	bool has_msg = false;
+
 	if (!m_msg_queue.empty())
 	{
-		msg = m_msg_queue.front();
+		auto msg_ptr = m_msg_queue.front();
 		m_msg_queue.pop();
-		has_msg = true;
+		return msg_ptr;
 	}
-
-	return has_msg;
+	return nullptr;
 }
 
-void Subscriber::deliver_message(Message msg)
+void Subscriber::deliver_message(MessagePtr msg_ptr)
 {
-	m_msg_queue.push(msg);
+	m_msg_queue.push(msg_ptr);
 }
 
 string MessageBus::Subscriber::get_name()

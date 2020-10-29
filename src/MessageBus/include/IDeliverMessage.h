@@ -11,6 +11,6 @@ namespace MessageBus
 	{
 	public:
 		virtual ~IDeliverMessage() {}
-		virtual void deliver_message(Message) = 0;
+		virtual void deliver_message(shared_ptr<Message>) = 0;
 	};
 }

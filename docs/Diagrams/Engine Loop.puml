@@ -1,0 +1,14 @@
+@startuml
+
+-> GameEngine : run()
+activate GameEngine
+    loop running
+        GameEngine -> IInputHandler : check_inputs()
+        GameEngine -> IScene : update()
+        GameEngine -> IGUIHandler : update()
+        GameEngine -> IRender : draw()
+        GameEngine -> GameEngine : process_messages()
+    end    
+deactivate GameEngine
+
+@enduml

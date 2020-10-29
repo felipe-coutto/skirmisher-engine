@@ -20,13 +20,13 @@ namespace MessageBus
 	class Bus
 	{
 	public:
-		void publish_message(Message msg);
+		void publish_message(shared_ptr<Message> msg_ptr);
 
 		void subscribe(MessageType msg_type, SubscriberPtr subscriber);
 		void unsubscribe(MessageType msg_type, SubscriberPtr subscriber);
 
 	private:
-		void deliver_to_subscribers(Message msg, SubscriberList);
+		void deliver_to_subscribers(shared_ptr<Message> msg_ptr, SubscriberList);
 
 		SubscriptionMap m_subscription_map;
 	};
