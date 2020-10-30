@@ -5,10 +5,10 @@
 namespace MessageBus
 {
 
-	class ISubscribeMessage
+	class ISubscription
 	{
 	public:
-		virtual ~ISubscribeMessage() {};
+		virtual ~ISubscription() {};
 		virtual shared_ptr<Message> get_next_message() = 0;
 	};
 }

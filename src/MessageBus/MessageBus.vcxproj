@@ -200,8 +200,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\Bus.h" />
-    <ClInclude Include="include\IDeliverMessage.h" />
-    <ClInclude Include="include\ISubscribeMessage.h" />
+    <ClInclude Include="include\IMailBox.h" />
+    <ClInclude Include="include\ISubscription.h" />
     <ClInclude Include="include\Message.h" />
     <ClInclude Include="include\Subscriber.h" />
   </ItemGroup>

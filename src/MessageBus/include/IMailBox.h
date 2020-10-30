@@ -7,10 +7,11 @@ using namespace MessageBus;
 
 namespace MessageBus
 {
-	class IDeliverMessage
+	class IMailBox
 	{
 	public:
-		virtual ~IDeliverMessage() {}
+		virtual ~IMailBox() {}
 		virtual void deliver_message(shared_ptr<Message>) = 0;
+		virtual string get_name() = 0;
 	};
 }

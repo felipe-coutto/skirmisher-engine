@@ -2,7 +2,7 @@
 
 using namespace MessageBus;
 
-MessageBus::Message::Message()
+Message::Message()
 {
 }
 
@@ -16,7 +16,7 @@ void Message::set_publisher_name(string pub_name)
 	m_publisher_name = pub_name;
 }
 
-string MessageBus::Message::get_publisher_name()
+string Message::get_publisher_name()
 {
 	return m_publisher_name;
 }

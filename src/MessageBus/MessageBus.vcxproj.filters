@@ -18,16 +18,16 @@
     <ClInclude Include="include\Bus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\IDeliverMessage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ISubscribeMessage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Message.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Subscriber.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IMailBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ISubscription.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

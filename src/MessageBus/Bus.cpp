@@ -1,3 +1,6 @@
+
+#include <sstream>
+
 #include "Bus.h"
 
 using namespace MessageBus;
@@ -22,16 +25,32 @@ void Bus::deliver_to_subscribers(shared_ptr<Message> msg_ptr, SubscriberList sub
     }
 }
 
-void Bus::subscribe(MessageType msg_type, SubscriberPtr subscriber)
+void Bus::subscribe(MessageType msg_type, IMailBoxPtr subscriber)
 {
     SubscriberList subscribers = m_subscription_map[msg_type];
     subscribers.push_back(subscriber);
     m_subscription_map[msg_type] = subscribers;
 }
 
-void Bus::unsubscribe(MessageType msg_type, SubscriberPtr subscriber)
+void Bus::unsubscribe(MessageType msg_type, IMailBoxPtr subscriber)
 {
+    SubscriberList subscribers = m_subscription_map[msg_type];
 
+    auto it = std::find_if(std::begin(subscribers),std::end(subscribers),
+        [&](const IMailBoxPtr s) { return subscriber->get_name() == s->get_name(); });
+
+    if (it != subscribers.end())
+    {
+        subscribers.erase(it);
+        m_subscription_map[msg_type] = subscribers;
+    }
+    else
+    {
+        stringstream msg;
+        msg << "Cannot find subscription for msg_type=" << msg_type << " and sub=" << subscriber->get_name();
+        throw exception();
+    }
 }
+
 
 
